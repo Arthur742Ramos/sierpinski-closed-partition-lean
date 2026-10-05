@@ -1,0 +1,126 @@
+{
+  "version": "v0.4",
+  "project": {
+    "name": "Sierpinski Closed Partitions of Continua",
+    "description": "A nonempty compact connected Hausdorff space covered by countably many pairwise disjoint closed sets has one piece equal to the whole space. Includes arbitrary countable index types, empty pieces, finite partitions, and the continuous-choice corollary.",
+    "authors": [
+      "Arthur Freitas Ramos",
+      "David Barros Hulak",
+      "Ruy Jose Guerra Barretto de Queiroz"
+    ],
+    "responsible_maintainers": [
+      "Arthur Freitas Ramos",
+      "David Barros Hulak",
+      "Ruy Jose Guerra Barretto de Queiroz"
+    ],
+    "license": "Apache-2.0"
+  },
+  "repository": {
+    "role": "substantive-development"
+  },
+  "classification": {
+    "arxiv": [
+      "math.GN"
+    ],
+    "msc2020": [
+      "54D05",
+      "54D30",
+      "54F15"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Chapter V: Connected Spaces (Washington University topology notes)",
+      "type": "paper",
+      "id": "https://www.math.wustl.edu/~freiwald/topology/Ch5.pdf#page=19",
+      "location": "Definition 5.7, Lemma 5.9, and Theorem 5.10, printed pages 231 through 233",
+      "relationship": "formalizes",
+      "note": "The source defines continua as compact connected Hausdorff spaces. The proof uses shrinking continua and compact intersection nonemptiness.",
+      "author_endorsement": "not-contacted"
+    }
+  ],
+  "related_formalizations": [
+    {
+      "id": "https://github.com/leanprover-community/mathlib4/tree/065356127b1dc0016f66b7283ce0ce2c4055aa55",
+      "relationship": "builds-on",
+      "note": "Uses Mathlib compactness, normal separation, component/quasicomponent equality, and closed equalizers. Complete pinned-source search found no equivalent target; see evidence/complete-mathlib-search.json."
+    },
+    {
+      "id": "https://github.com/Arthur742Ramos/boundary-bumping-lean/tree/58831416a12f73312ac01cdaec19c060a6d4b142",
+      "relationship": "builds-on",
+      "note": "Reuses the small Apache-2.0 Boundary Bumping section as local Lean source, with unchanged code tokens. No additional Lake dependency."
+    },
+    {
+      "id": "https://github.com/isabelle-prover/mirror-isabelle/blob/master/src/HOL/Analysis/Urysohn.thy",
+      "relationship": "other",
+      "note": "The inspected locally_connected_not_countable_closed_union statement assumes local connectedness and requires all pieces nonempty. It is narrower in those hypotheses; no proof code is reused."
+    }
+  ],
+  "status": {
+    "scope": "Sierpinski closed-partition theorem for natural and arbitrary countable indices; continuous choice among everywhere-distinct continuous alternatives.",
+    "sorry_count": 0,
+    "sorry_in_definitions": 0,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "automation": {
+    "methods": [
+      {
+        "method": "agent",
+        "models": [
+          "OpenAI Codex (model identifier not recorded)"
+        ],
+        "framework": "Lean 4 and Mathlib",
+        "tool_setup": "One serial compiler, bounded Windows Job Objects, fresh source builds, raw type and universe comparison, and transitive axiom audit."
+      },
+      {
+        "method": "agent",
+        "models": [
+          "OpenAI Codex (model identifier not recorded)"
+        ],
+        "framework": "Lean 4 and Mathlib",
+        "tool_setup": "Independent AI source review, one serial compiler within one CPU and 3 GiB, exact source/type/universe/axiom checks, and independent JSON metadata and provenance checks."
+      }
+    ],
+    "spend_usd": "not tracked",
+    "notes": "Human direction selected target, scope, proof route, and resource constraints. Challenge has three intentional theorem holes, excluded from Solution admission counts."
+  },
+  "fidelity": {
+    "divergences": "The natural-number statement is reindexed to any countable index type by an injection with empty padding. ConnectedSpace includes nonemptiness. The private shrinking helper stays inside the contradiction proof. No metric or local connectedness hypotheses are added. Continuous-choice equalizers give a direct corollary."
+  },
+  "review": {
+    "status": "Independent AI review approved the full mathematical scope and exact local Lean proof, isolated Challenge, raw declaration types, universe parameters, and standard-axiom checks, with no blocking finding or source correction. The reviewer also validated the reviewed JSON-form YAML metadata against the official schema and unchanged intake validators through a duplicate-rejecting JSON decoding adapter. Review-status metadata was subsequently refreshed and revalidated locally; approved proof bytes are unchanged. General YAML parsing, a clean dependency rebuild, ordinary Lake build, GitHub Actions, hosted Comparator, NaNoDa, and human mathematical review remain unrun.",
+    "approved_proof_sha256": {
+      "Solution.lean": "2623c74b5bbbb1beba96c091dc5390490a4e6fc05b4d66b2233df7ca7a7e3ad4",
+      "Challenge.lean": "ea0751abe88261f72fa047630c339d1388d0615eaa344f1bb5902c347da3035d"
+    },
+    "reviewed_metadata_sha256": "800e6ace8a208d0228679302457ca4c0fadf5877b6e95c88bb40b362c7ea18e3"
+  },
+  "alignment": {
+    "namespace": "Sierpinski",
+    "statements": [
+      {
+        "source": "Theorem 5.10, natural-number indices",
+        "lean": "Sierpinski.exists_eq_univ_of_nat_closed_partition",
+        "module": "Solution",
+        "status": "proved"
+      },
+      {
+        "source": "Theorem 5.10, arbitrary countable indices",
+        "lean": "Sierpinski.exists_eq_univ_of_countable_closed_partition",
+        "module": "Solution",
+        "status": "proved"
+      },
+      {
+        "source": "Continuous-choice equalizer corollary",
+        "lean": "Sierpinski.continuous_choice_eq_one",
+        "module": "Solution",
+        "status": "proved"
+      }
+    ]
+  },
+  "acknowledgements": "Credits the cited topology exposition, the Boundary Bumping authors, and Lean and Mathlib contributors. No mathematical novelty, source-author endorsement, or completed human review is claimed."
+}
