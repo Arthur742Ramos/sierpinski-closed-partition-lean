@@ -1,0 +1,12 @@
+.lake/
+.toolchain/schema-deps/
+.toolchain/library-helpers/
+dist/
+*.olean
+*.olean.private
+*.olean.server
+*.ir
+*.ir.sig
+*.ilean
+__pycache__/
+*.library.json
